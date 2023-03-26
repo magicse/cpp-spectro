@@ -7,4 +7,10 @@
 #include <sndfile.hh>
 
 int main(int argc, const char *argv[]){
+
+    if (argc < 2){
+        std::cout << "You must specify an input file." << std::endl;
+        return -1;
+    }
+
 }
