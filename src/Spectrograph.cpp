@@ -2,12 +2,18 @@
 void Spectrograph::save_image( std::string fname, bool log_mode){
     float top_db= 80;
     const double epsilon = 1e-10;
+    const int data_size = spectrogram_.front().size();
+    
     // Only the data below 1/2 of the sampling rate (nyquist frequency) is useful
     float multiplier = 0.5;
     for (int i = 1; i < file_handle_.channels(); i++){
         multiplier *= 0.5;
     }
+    
+    const int data_size_used = data_size * multiplier;
+    
     for (int x = 0; x < spectrogram_.size(); x++){
+        int freq = 0;
         for (int y = 1; y <= height_; y++){
             double mag_val = abs(spectrogram_[x][freq]);
             
