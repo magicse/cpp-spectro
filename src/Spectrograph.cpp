@@ -1,3 +1,10 @@
+#include "Spectrograph.h"
+#include "Utility.h"
+
+#include <iostream>
+#include <cassert>
+#include <cmath>
+#include <numeric>
 
 void Spectrograph::save_image( std::string fname, bool log_mode){
     float top_db= 80;
