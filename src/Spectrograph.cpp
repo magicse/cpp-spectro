@@ -37,6 +37,7 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
     for (int i = 1; i < file_handle_.channels(); i++){
         multiplier *= 0.5;
     }
+    const int data_size_used = data_size * multiplier;
     
     // Get max/min abs values for spectrogram magnitude
     double mag_min = std::numeric_limits<double>::max();
