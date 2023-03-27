@@ -25,5 +25,20 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
             float ratio = static_cast<float>(y)/height_;
             freq = static_cast<int>(ratio * data_size_used);
         }
-    }    
+    }
+    cv::flip(spectrum, spectrum, 0);
+    double minVal, maxVal;
+    minMaxLoc(spectrum, &minVal, &maxVal);
+    spectrum = (spectrum-minVal)/(maxVal-minVal)*1;
+    
+    spectrum.convertTo(spectrum, CV_8U, 255.0);
+    // Apply a color map to the grayscale image
+    cv::Mat colormap;
+    // ApplyColorMap(spectrum, colormap, cv::COLORMAP_JET);
+    applyColorMap(spectrum, spectrum, cv::COLORMAP_MAGMA);
+    // Show the color spectrogram
+    cv::namedWindow("Spectrogram", cv::WINDOW_NORMAL);
+    imshow("Spectrogram", spectrum);
+    cv::imwrite("spect.png",spectrum);
+    cv::waitKey();
 }
