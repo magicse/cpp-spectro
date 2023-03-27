@@ -3,6 +3,7 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
     float top_db= 80;
     const double epsilon = 1e-10;
     const int data_size = spectrogram_.front().size();
+    double log_spec;
     
     // Create opencv mat for spectrogram
     cv::Mat spectrum(height_, spectrogram_.size(), CV_32F);
