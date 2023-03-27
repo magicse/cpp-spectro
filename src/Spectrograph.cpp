@@ -11,6 +11,7 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
     }
     
     const int data_size_used = data_size * multiplier;
+    log_max_db = 20*log10(mag_max);
     
     for (int x = 0; x < spectrogram_.size(); x++){
         int freq = 0;
@@ -19,7 +20,7 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
             
             log_spec = 20*log10(std::max(mag_val, epsilon));
             //subtracts the threshold from the maximum value to get the minimum amplitude below which all frequencies are considered as noise.
-            spectrum.at<float>(y-1, x) = std::max(log_spec, 20*log10(mag_max) - top_db);
+            spectrum.at<float>(y-1, x) = std::max(log_spec, log_max_db - top_db);
             
             float ratio = static_cast<float>(y)/height_;
             freq = static_cast<int>(ratio * data_size_used);
