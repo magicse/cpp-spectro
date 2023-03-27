@@ -4,6 +4,9 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
     const double epsilon = 1e-10;
     const int data_size = spectrogram_.front().size();
     
+    // Create opencv mat for spectrogram
+    cv::Mat spectrum(height_, spectrogram_.size(), CV_32F);
+    
     // Only the data below 1/2 of the sampling rate (nyquist frequency) is useful
     float multiplier = 0.5;
     for (int i = 1; i < file_handle_.channels(); i++){
