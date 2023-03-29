@@ -70,8 +70,6 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
     
     spectrum.convertTo(spectrum, CV_8U, 255.0);
     // Apply a color map to the grayscale image
-    cv::Mat colormap;
-    // ApplyColorMap(spectrum, colormap, cv::COLORMAP_JET);
     applyColorMap(spectrum, spectrum, cv::COLORMAP_MAGMA);
     // Show the color spectrogram
     cv::namedWindow("Spectrogram", cv::WINDOW_NORMAL);
