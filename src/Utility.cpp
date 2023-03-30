@@ -46,7 +46,6 @@ namespace Utility {
         const float a3 = 0.01168;
 
         const float arg = 2 * M_PI * n / (samples - 1);
-
         return a0 - a1 * cos(arg) + a2 * cos(2 * arg) - a3 * cos( 3 * arg);
     }
     
