@@ -31,13 +31,13 @@ namespace Utility {
         return reversed;
     }
 
-    //windows function Hann
+    //Window function Hann
     double hann_function(int n, int samples){
         return 0.5 * (1.0 - cos((2.0 * M_PI * n)/(samples - 1.0)));
 
     }
     
-    //windows function Blackman-harris
+    //Window function Blackman-harris
     double blackman_harris(int n, int samples){
 
         const float a0 = 0.35875;
