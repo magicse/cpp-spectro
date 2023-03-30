@@ -49,6 +49,7 @@ namespace Utility {
         return a0 - a1 * cos(arg) + a2 * cos(2 * arg) - a3 * cos( 3 * arg);
     }
     
+    //Calc magnitude from complex number
     double mag(complex_d& c){
         return sqrt(c.real() * c.real() + c.imag() * c.imag());
     }
