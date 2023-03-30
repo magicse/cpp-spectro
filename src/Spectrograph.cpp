@@ -23,6 +23,8 @@
 #include <cmath>
 #include <numeric>
 
+
+//Save spectrogram to image file
 void Spectrograph::save_image( std::string fname, bool log_mode){
     float top_db= 80;
     const double epsilon = 1e-10;
