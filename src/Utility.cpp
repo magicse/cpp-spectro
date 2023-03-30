@@ -21,6 +21,15 @@
 using namespace std;
 
 namespace Utility {
+    
+    uint32_t reverse_bits(uint32_t val, int power){
+        int reversed = 0;
+        for (int i = 0; i < power; i++){
+            bool cur_bit = (1 << i) & val;
+            reversed |= (cur_bit << (power - i - 1));
+        }
+        return reversed;
+    }
 
     //windows function Hann
     double hann_function(int n, int samples){
