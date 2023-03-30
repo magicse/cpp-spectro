@@ -55,7 +55,7 @@ namespace Utility {
     }
     
     //Function takes in the sampling rate sr, the FFT size n_fft, and the number of Mel frequency bins n_mels
-    //as inputs, and returns a matrix filterbank containing the Mel filterbank.
+    //as inputs, and returns a matrix containing the Mel filterbank.
     //2595 is a constant value used in the mel scale conversion formula. It is the approximate number of mel values
     //per octave and is derived from the formula 1000/log(2) which is the conversion factor between hertz and mel.
     std::vector<std::vector<double>> mel_filterbank_htk(int sr, int n_fft, int n_mels) {
