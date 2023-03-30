@@ -89,7 +89,7 @@ namespace Utility {
         return filterbank;
     }
     
-    //Apply Mel filter bank to SFTF spectrogram
+    //Apply Mel filterbank to SFTF spectrogram
     std::vector<std::vector<float>> apply_mel_filterbank(const std::vector<std::vector<float>>& power_spec, const std::vector<std::vector<float>>& mel_filterbank) {
         std::vector<std::vector<float>> mel_spec(mel_filterbank.size(), std::vector<float>(power_spec[0].size()));
         for (int i = 0; i < mel_spec.size(); i++) {
