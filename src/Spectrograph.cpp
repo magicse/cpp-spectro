@@ -48,7 +48,6 @@ void Spectrograph::save_image( std::string fname, bool log_mode){
         }
     }
     
-    const int data_size_used = data_size * multiplier;
     log_max_db = 20*log10(mag_max);
     
     for (int x = 0; x < spectrogram_.size(); x++){
